@@ -1,0 +1,197 @@
+body{
+  backgroud-image: url("/media/logo/bg.jpg");
+}
+
+.navbar {
+  display: none; 
+  /*overflow: hidden;*/
+}
+/* Navbar */
+.navbar + .docs-section {
+  border-top-width: 0; }
+.navbar{
+  display: block;
+  width: 100%;
+  height: 6.5rem;
+  background: #fff;
+  z-index: 1000;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee; }
+
+.navbar > .container {
+  width: 100%; }
+.navbar-list {
+  list-style: none;
+  margin-bottom: 0; }
+.navbar-item {
+  position: relative;
+  float: left;
+  margin-bottom: 0; }
+.navbar-link {
+  text-transform: uppercase;
+  font-size: 15px;
+  font-weight: 200;
+  letter-spacing: .2rem;
+  margin-right: 35px;
+  text-decoration: none;
+  line-height: 6.5rem;
+  color: #222; }
+.navbar-link.active {
+  color: #33C3F0; }
+.has-docked-nav .navbar {
+  position: fixed;
+  top: 0;
+  left: 0; }
+.has-docked-nav{
+  display: block; }
+/* Re-overiding the width 100% declaration to match size of % based container */
+.has-docked-nav .navbar > .container {
+  width: 80%; }
+
+.code{
+  width: 100%;
+  white-space: nowrap;
+  background: #F1F1F1;
+  border: 1px solid #E1E1E1;
+  border-radius: 4px; } 
+.paginator {
+  margin-bottom: 24px; }
+  @media screen and (min-width: 768px) {
+    .paginator {
+      float: left;
+      display: block;
+      margin-right: 3.57866%;
+      width: 48.21067%; }
+      .paginator:last-child {
+        margin-right: 0; } }
+.paginator-button {
+  display: block;
+  padding: 4px 12px;
+  text-decoration: none;
+  border: #cecece 1px solid; }
+
+.paginator li {
+  display: inline-block;
+  *display: inline;
+  zoom: 1; }
+
+.paginator li{
+  margin-left: 12px; }
+  .paginator li:first-child {
+    margin-left: 0; }
+
+.paginator-button {
+  display: block;
+  padding: 4px 12px;
+  border: #cecece 1px solid; }
+
+.article-title {
+  font-size: 2rem;
+  color: #222;
+  font-weight: 100;
+  text-decoration:none;
+}
+
+.article-summary {
+  font-size: 1.5rem;
+  text-decoration:none;
+}
+
+.article-summary a{
+  font-weight: 500;
+  color: black;
+}
+.article-summary a:link{color: #101010;}
+.article-summary a:hover{color: black;}
+.article-summary a:visited{color: #101010;}
+.article-summary a:active{color: #101010;}
+
+
+.about-me{
+  border: 1px solid #eee;
+  border-radius: 4px;
+  width: 30%;
+  height: 120px;
+}
+
+.commont{
+  border: 1px solid #aaa;
+  
+}
+
+img{
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+@media screen and (max-width: 500px) {
+
+}
+
+h6{
+  font-size: 1.70rem;
+  font-weight: bold;
+}
+
+th,
+td{
+  padding:0px;
+}
+
+.article-body{
+  border-style:solid;
+  border-width:1px;
+  border-color:rgba(170,170,170, 0.45);    
+}
+
+.article-content{
+  border-style:solid;
+  border-width:1px;
+  border-color:rgba(170,170,170, 0.45);  
+  margin-top:-1px;
+  margin-bottom: 0.6rem;
+}
+
+.article-content:nth-child(odd){
+  background-color: rgba(187,187,187, 0.05);
+}
+
+.article-content:hover{
+  background-color: rgba(189,189,189, 0.35);
+}
+
+.article-content > hr{
+  margin-top: 2.25rem;
+  margin-bottom: 0;
+  color: #fff;
+}
+
+.comment-content{
+  padding: 0 2px;
+  border: 1px solid #eee;
+  border-radius: 4px;
+  margin-bottom: 3px;
+}
+
+.comment-content:hover{
+  background-color: #eee;
+}
+
+.comment-name{
+  font-size: 1.6rem;
+  font-weight: 550;
+}
+
+.comment-date{
+  font-size: 1.3rem;
+  color: #555;
+  font-weight: 400;
+}
+
+.comment-text{
+  border-top:1px dashed #000;
+}
+
+.title-info-label{
+  font-size: 1.4rem;
+}

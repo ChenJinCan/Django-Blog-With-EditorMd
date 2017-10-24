@@ -1,0 +1,16 @@
+<div class = "container">
+	<div class="custom-menu-wrapper">
+	    <div class="pure-menu custom-menu custom-menu-top">
+	        <a href="{% url "index" %}" class="pure-menu-heading custom-menu-brand">首页</a>
+	        <a href="#" class="custom-menu-toggle" id="toggle"><s class="bar"></s><s class="bar"></s></a>
+	    </div>
+	    <div class="pure-menu pure-menu-horizontal pure-menu-scrollable custom-menu custom-menu-bottom custom-menu-tucked" id="tuckedMenu">
+	        <ul class="pure-menu-list">
+	        	{% for item in menuitems %}
+	        		<li class="pure-menu-item"><a href="{% url "category" item.pk  %}" class="pure-menu-link">{{item.name}}</a></li>
+	        	{% endfor %}
+	        </ul>
+	    </div>
+	</div>	
+</div>
+

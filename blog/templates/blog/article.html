@@ -1,0 +1,59 @@
+{% extends "blog/_base.html" %}
+
+{% block title %}
+	{{ article_obj.title }}
+{% endblock %}
+
+{% block content %}
+<br>
+<div class = "container article-body">
+	<h4>{{ article.title }}</h4>
+	<table class="u-full-width">
+		<tbody>
+			<tr>
+				<td class = "title-info-label">Author：{{ article.author }} </td>
+				<td class = "title-info-label">Editor Date: {{ article.date }}</td>
+				<td class = "title-info-label">Watch Count: {{ article.watch_count }}</td>
+				<td class = "title-info-label">Category: {{ article.typename }}</td>
+				{% if user.is_authenticated %}
+				<td class = "title-info-label">
+					<a href="/admin/blog/article/{{article.pk}}/change/" style="text-decoration: none;">Modify</a>
+				</td>
+				{% endif %}
+			</tr>
+		</tbody>
+	</table>
+	<div id="editormd-article" width = "100%">
+		<textarea style="display:none;">{{article.editormd}}</textarea>
+	</div>
+
+	<script type="text/javascript">
+        testEditormdView2 = editormd.markdownToHTML("editormd-article", {
+            htmlDecode      : "style,script,iframe",  // you can filter tags decode
+            emoji           : true,
+            taskList        : true,
+            tex             : true,  // 默认不解析
+            flowChart       : true,  // 默认不解析
+            sequenceDiagram : true,  // 默认不解析
+        });
+	</script>
+	<hr>
+    <form action = "{% url "article" article.pk %}" method = "post">
+		{% csrf_token %}
+		<label>Name：</label>
+		<input class="u-full-width" name="name" required="required" style="width: 20rem;" placeholder="Please Input Your Name">
+		<label>Content：</label>
+		<textarea class="u-full-width" style="height: 10rem;" name="comment" required="required" placeholder="Hello, I want....."></textarea>
+		<input class="button-primary" value="Submit" type="submit">    	
+    </form>
+
+    {% for comment in comments %}
+	    <div class = "comment-content">
+	    	<label class = "comment-name">{{ comment.cname }}</label>
+	    	<label class = "comment-date">At {{ comment.cdate }} Said:</label>
+	    	<p class = "">{{ comment.comment }}</p>
+	    </div>
+    {% endfor %}    
+
+</div>
+{% endblock %}

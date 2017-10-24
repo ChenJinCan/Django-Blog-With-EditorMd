@@ -1,0 +1,26 @@
+<div class = "container">
+    <br>
+    <ul class="paginator">
+        {% if page.num_pages == 1 %}
+            <li class="paginator-pages">
+                <a class="paginator-button" href="?{{ page_var }}={{ 1 }}">{{1}}</a>
+            </li>
+        {% else %}
+            {% if page.number > 1 %}
+                <li>
+                    <a class="paginator-button" href="?{{ page_var }}={{ page.previous_page_number }}{{ extra_query }}{{ hashtag }}"><</a>
+                </li>
+            {% endif %}
+            {% for page_number in page.page_range %}
+                <li>
+                    <a class="paginator-button" href="?{{ page_var }}={{ page_number }}{{ extra_query }}{{ hashtag }}">{{ page_number }}</a>
+                </li>
+            {% endfor %}
+            {% if page.number < page.num_pages %}
+                <li>
+                    <a class="paginator-button" href="?{{ page_var }}={{ page.next_page_number }}{{ extra_query }}{{ hashtag }}">></a>
+                </li>
+            {% endif %}
+        {% endif %}
+    </ul>
+</div>

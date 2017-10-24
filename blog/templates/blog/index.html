@@ -1,0 +1,46 @@
+{% extends "blog/_base.html" %}
+
+{% load summary %}
+{% load paginator %}
+
+{% block title %}
+	{{ typename }}
+{% endblock %}
+
+{% block content %}
+	{% for article in articles %}
+		<div class = "container article-content">
+			<a href="{% url "article" article.pk %}" class = "article-title">{{article.title}}</a>
+			<table class="u-full-width">
+				<tbody>
+					<tr>
+						<td class = "title-info-label">Edit Date: {{article.date}}</td>
+						<td class = "title-info-label">Watch Count: {{article.watch_count}}</td>
+						<td class = "title-info-label">Article Type: {{article.menu_item.name}}</td>
+					</tr>
+				</tbody>
+			</table>
+			<a href="{% url "article" article.pk %}" class="article-summary">
+				<div class = "article-summary" id="article-{{article.pk}}" style="padding-left: 2px; padding-right: 2px; max-width: 98%; padding-bottom: 0px; padding-top: 0px; margin-top: -10px; margin-bottom: -10px;">
+					<textarea style="display:none;">{{article.editormd|get_summary}}</textarea>
+				</div>
+			</a>
+			<hr>
+		</div>
+	{% endfor %}
+
+	{% for article in articles %}
+		<script type="text/javascript">
+	        editormd.markdownToHTML("article-{{article.pk}}", {
+	            htmlDecode      : "style,script,iframe",  // you can filter tags decode
+	            emoji           : true,
+	            taskList        : true,
+	            tex             : true,  
+	            flowChart       : true,  
+	            sequenceDiagram : true,  
+	        });
+		</script>	
+	{% endfor %}
+	
+	{% render_paginator articles %}
+{% endblock%}

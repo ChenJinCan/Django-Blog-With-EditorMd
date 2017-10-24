@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>{% block title %}Home{% endblock %}</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	{% block header_static %} {% endblock%}
+	{% block static %}{% endblock %}
+	<link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/skeleton/2.0.4/skeleton.min.css">
+	<link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/normalize/6.0.0/normalize.min.css">
+	<link rel="stylesheet" type="text/css" href="/static/custom.css">
+	<link rel="stylesheet" type="text/css" href="/static/menus-min.css">
+	<link rel="stylesheet" href="/static/editormd/css/font-awesome.css" />
+	<link rel="stylesheet" href="/static/editormd/css/editormd.preview.css" />
+    <script src="/static/editormd/src/jquery.min.js"></script>
+    <script src="/static/editormd/lib/marked.min.js"></script>
+    <script src="/static/editormd/lib/prettify.min.js"></script>
+    <script src="/static/editormd/lib/raphael.min.js"></script>
+    <script src="/static/editormd/lib/underscore.min.js"></script>
+    <script src="/static/editormd/lib/sequence-diagram.min.js"></script>
+    <script src="/static/editormd/lib/flowchart.min.js"></script>
+    <script src="/static/editormd/lib/jquery.flowchart.min.js"></script>
+    <script src="/static/editormd/src/editormd.js"></script>
+</head>
+<body>
+	{% include "blog/_header.html" %}
+	{% block content %}{% endblock %}
+</body>
+</html>
